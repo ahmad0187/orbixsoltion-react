@@ -33,15 +33,12 @@ It's a fast, static site with no build step: plain HTML, CSS and JavaScript. It'
 | `.htaccess` | Routes old URLs to the page, compression and caching |
 
 ## Files that live only on the server (not in this repo)
-- `send-mail.php`: the contact form and chatbot lead mailer.
-- nothing else (logo and favicon are included).
-
-Add it to the repo, or keep them in `public_html`, depending on how you deploy (see below).
+- `send-mail.php`: the contact form and chatbot lead mailer. Copy it from the Arcane Circuit server if needed, and set the recipient to info@orbixsolutions.net.
 
 ## Deploying on Hostinger with Git
 1. In hPanel, open **Websites → Manage → Advanced → GIT**.
 2. Repository: `https://github.com/ahmad0187/orbixsoltion-react.git`, branch `main`. Leave the install path empty to deploy to `public_html`.
-3. Hostinger requires the target folder to be **empty** for the first deploy. Back up `public_html` (especially `send-mail.php`, nothing else (logo and favicon are included)), empty it, deploy, then upload `send-mail.php` back.
+3. Hostinger requires the target folder to be **empty** for the first deploy. Back up `public_html` (especially `send-mail.php`), empty it, deploy, then upload `send-mail.php` back.
 4. Optional: enable **Auto Deployment** and add the webhook URL Hostinger gives you under GitHub → Settings → Webhooks. After that, every push goes live automatically.
 
 ## Settings
