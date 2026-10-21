@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Orbix Solutions | AI Agents, Websites &amp; Apps That Grow Your Business</title>
+<meta name="description" content="Orbix Solutions is an AI-first digital studio. We build AI chatbots, voice agents and automations, plus fast websites, web apps and mobile apps, for businesses worldwide.">
+<meta name="theme-color" content="#05050a">
+<link rel="canonical" href="https://orbixsolutions.net/">
+<link rel="icon" type="image/svg+xml" href="/orbix-logo.svg">
+<link rel="icon" type="image/png" href="/orbix-favicon.png">
+<link rel="apple-touch-icon" href="/orbix-favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Orbix Solutions">
+<meta property="og:title" content="Orbix Solutions | AI agents that talk, book and sell">
+<meta property="og:description" content="AI chatbots, voice agents, automation, websites and apps. One studio from idea to launch.">
+<meta property="og:image" content="https://orbixsolutions.net/og-image.jpg">
+<meta property="og:url" content="https://orbixsolutions.net/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/orbix.css?v=1">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Orbix Solutions","url":"https://orbixsolutions.net/","logo":"https://orbixsolutions.net/orbix-favicon.png","email":"info@orbixsolutions.net","telephone":"+923374672612","areaServed":"Worldwide","address":{"@type":"PostalAddress","addressLocality":"Lahore","addressCountry":"PK"},"description":"AI chatbots, AI voice agents, workflow automation, website development and web and mobile app development.","knowsAbout":["AI chatbots","AI voice agents","Workflow automation","Retrieval-augmented generation","AI document processing","Large language models","Website development","Mobile app development","WordPress"]}
+</script>
+<script>document.documentElement.classList.add('js');</script>
+<script>
+/* ===== SITE SETTINGS: edit these values only ===== */
+window.AC_CONFIG = {
+  whatsapp: '923374672612',               // WhatsApp number, digits only with country code
+  email: 'info@orbixsolutions.net',
+  vapiPublicKey: 'PASTE_VAPI_PUBLIC_KEY',  // Vapi dashboard > API Keys > PUBLIC key (never the private key)
+  vapiAssistantId: 'PASTE_VAPI_ASSISTANT_ID', // Vapi dashboard > Assistants > your website assistant > ID
+  aiChat: false                            // true = chatbot uses ChatGPT through /chat-ai.php (add your key in that file)
+};
+</script>
+</head>
+<body>
+
+<!-- ============ PRELOADER ============ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <div class="loader__mark"><span>Orbix</span><span>Solutions</span></div>
+    <div class="loader__bar"><i id="loaderBar"></i></div>
+    <div class="loader__row"><span class="mono">Initialising agents</span><span class="mono" id="loaderNum">000</span></div>
+  </div>
+</div>
+
+<!-- ============ CURSOR ============ -->
+<div class="cursor" aria-hidden="true"><div class="cursor__dot"></div><div class="cursor__ring"><span class="cursor__label"></span></div></div>
+<div class="spot" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><i></i></div>
+
+<!-- ============ HEADER ============ -->
+<header class="nav" id="nav">
+  <a href="#top" class="brand" data-cursor="hover" aria-label="Orbix Solutions home">
+    <img class="brand__logo" src="/orbix-logo.svg" alt="" width="34" height="34">
+    <span class="brand__name">Orbix<b>Solutions</b></span>
+  </a>
+  <nav class="nav__links" aria-label="Main">
+    <a href="#services" data-scramble>Services</a>
+    <a href="#demo" data-scramble>Live demo</a>
+    <a href="#work" data-scramble>Work</a>
+    <a href="#process" data-scramble>Process</a>
+    <a href="#faq" data-scramble>FAQ</a>
+  </nav>
+  <div class="nav__right">
+    <button class="nav__voice" data-voice data-cursor="hover"><i></i>Talk to our AI</button>
+    <a href="#contact" class="btn btn--sm magnetic" data-cursor="hover"><span>Book a call</span></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+<div class="menu" id="menu" aria-hidden="true">
+  <nav>
+    <a href="#services"><small>01</small>Services</a>
+    <a href="#demo"><small>02</small>Live demo</a>
+    <a href="#work"><small>03</small>Work</a>
+    <a href="#process"><small>04</small>Process</a>
+    <a href="#faq"><small>05</small>FAQ</a>
+    <a href="#contact"><small>06</small>Contact</a>
+  </nav>
+  <div class="menu__foot mono"><button class="btn btn--glow" data-voice><span>Talk to our AI</span></button><a href="https://wa.me/923374672612" target="_blank" rel="noopener">WhatsApp us</a><a href="mailto:info@orbixsolutions.net">info@orbixsolutions.net</a><a href="tel:+923374672612">+92 337 4672612</a></div>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <canvas class="hero__gl" id="orb" aria-hidden="true"></canvas>
+  <div class="hero__fallback" aria-hidden="true"></div>
+  <div class="hero__content wrap">
+    <p class="eyebrow reveal-up"><span class="pulse"></span>AI-first studio · Websites · Apps · Automation</p>
+    <h1 class="hero__title" aria-label="We build AI agents, websites, apps and automations that never sleep.">
+      <span class="line"><span class="word">We</span> <span class="word">build</span></span>
+      <span class="line rotator" aria-hidden="true"><span class="rotator__track" id="rotator"><em>AI agents</em><em>websites</em><em>mobile apps</em><em>automations</em><em>AI agents</em></span></span>
+      <span class="line"><span class="word serif">that never</span> <span class="word">sleep.</span></span>
+    </h1>
+    <div class="hero__bottom">
+      <p class="hero__lead reveal-up">We build AI chatbots, voice agents and automations that work around the clock, plus the fast websites, web apps and mobile apps they live in. One team, from idea to launch.</p>
+      <div class="hero__ctas reveal-up">
+        <a href="#contact" class="btn btn--glow magnetic" data-cursor="hover"><span>Start your AI project</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <button class="btn btn--ghost magnetic" data-voice data-cursor="hover"><span class="mic-dot"></span><span>Talk to our AI now</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="float-chips" aria-hidden="true">
+    <div class="chip-f chip-f--1" data-depth="0.6"><i class="dot dot--green"></i><div><b>Voice agent</b><span>Booked demo · Thu 15:00</span></div></div>
+    <div class="chip-f chip-f--2" data-depth="1"><i class="dot dot--cyan"></i><div><b>Chatbot</b><span>Replied in 0.8 s · in Portuguese</span></div></div>
+    <div class="chip-f chip-f--3" data-depth="0.8"><i class="dot dot--violet"></i><div><b>New website live</b><span>Mobile-first · built to convert</span></div></div>
+  </div>
+  <a href="#services" class="scroll-cue" data-cursor="hover" aria-label="Scroll down"><span class="mono">Scroll</span><i></i></a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<section class="marquee" aria-label="Technologies we work with">
+  <div class="marquee__track" id="marquee">
+    <div class="marquee__group">
+      <span>OpenAI</span><i>✦</i><span>Claude</span><i>✦</i><span>React</span><i>✦</i><span>Next.js</span><i>✦</i><span>n8n</span><i>✦</i><span>Vapi</span><i>✦</i><span>Node.js</span><i>✦</i><span>WordPress</span><i>✦</i><span>Laravel</span><i>✦</i><span>React Native</span><i>✦</i><span>Gemini</span><i>✦</i><span>Supabase</span><i>✦</i><span>WooCommerce</span><i>✦</i><span>Twilio</span><i>✦</i><span>Figma</span><i>✦</i>
+    </div>
+    <div class="marquee__group" aria-hidden="true">
+      <span>OpenAI</span><i>✦</i><span>Claude</span><i>✦</i><span>React</span><i>✦</i><span>Next.js</span><i>✦</i><span>n8n</span><i>✦</i><span>Vapi</span><i>✦</i><span>Node.js</span><i>✦</i><span>WordPress</span><i>✦</i><span>Laravel</span><i>✦</i><span>React Native</span><i>✦</i><span>Gemini</span><i>✦</i><span>Supabase</span><i>✦</i><span>WooCommerce</span><i>✦</i><span>Twilio</span><i>✦</i><span>Figma</span><i>✦</i>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTRO / STATS ============ -->
+<section class="intro wrap">
+  <p class="intro__text split-words">We started as a web and app studio. Today, everything we build can <span class="mut">think</span>: websites that answer questions, apps that personalise themselves, and AI assistants that pick up the phone, reply in seconds and move data between your tools <em class="serif">without anyone lifting a finger.</em></p>
+  <div class="stats">
+    <div class="stat"><b><span data-count="24">0</span>/7</b><span>Always answering. No holidays, no missed calls.</span></div>
+    <div class="stat"><b>&lt;<span data-count="60">0</span>s</b><span>From a new lead to a personal reply.</span></div>
+    <div class="stat"><b><span data-count="20">0</span>+</b><span>Websites, apps and AI systems shipped.</span></div>
+    <div class="stat"><b><span data-count="2">0</span>–6</b><span>Weeks from first call to going live.</span></div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services wrap" id="services">
+  <div class="sec-head">
+    <p class="kicker mono">(01) Services</p>
+    <h2 class="h2 split-lines">AI-powered products, websites and apps, <em class="serif">built properly.</em></h2>
+  </div>
+
+  <div class="bento">
+    <article class="card card--xl tilt" data-cursor="hover">
+      <div class="card__glow"></div>
+      <div class="card__top"><span class="card__num mono">01</span><span class="tag">Most requested</span></div>
+      <h3>AI Chatbots &amp; Assistants</h3>
+      <p>Website, WhatsApp and Instagram assistants trained on your business. They answer questions, recommend products, take bookings and hand over to a human when it matters. (Try ours: bottom-right corner.)</p>
+      <div class="mini-chat" aria-hidden="true">
+        <div class="mc mc--u">Do you have a table for 4 on Friday?</div>
+        <div class="mc mc--a">Yes! 19:30 or 21:00 are free. Shall I book 19:30 for you? <span class="typing"><i></i><i></i><i></i></span></div>
+      </div>
+    </article>
+
+    <article class="card card--tall tilt" data-cursor="hover">
+      <div class="card__glow"></div>
+      <div class="card__top"><span class="card__num mono">02</span><span class="tag tag--cyan">Voice</span></div>
+      <h3>AI Voice Agents</h3>
+      <p>Receptionists that answer every call and book into your calendar, and outbound agents that call leads and set meetings.</p>
+      <div class="mini-wave" aria-hidden="true"></div>
+      <button class="card__link" data-voice data-cursor="hover">Talk to one now →</button>
+    </article>
+
+    <article class="card tilt" data-cursor="hover">
+      <div class="card__glow"></div>
+      <div class="card__top"><span class="card__num mono">03</span><span class="tag tag--pink">Web</span></div>
+      <h3>Website Design &amp; Development</h3>
+      <p>Fast, animated, mobile-first websites and landing pages that look premium and turn visitors into enquiries.</p>
+    </article>
+
+    <article class="card tilt" data-cursor="hover">
+      <div class="card__glow"></div>
+      <div class="card__top"><span class="card__num mono">04</span><span class="tag tag--pink">Apps</span></div>
+      <h3>Web &amp; Mobile Apps</h3>
+      <p>SaaS platforms, dashboards, PWAs and React Native apps for iOS and Android, from MVP to scale.</p>
+    </article>
+
+    <article class="card tilt" data-cursor="hover">
+      <div class="card__glow"></div>
+      <div class="card__top"><span class="card__num mono">05</span></div>
+      <h3>Workflow Automation</h3>
+      <p>n8n and Make automations connecting your CRM, inbox, sheets and Slack, with AI deciding what happens next.</p>
+      <div class="mini-flow" aria-hidden="true"><i></i><b></b><i></i><b></b><i></i></div>
+    </article>
+
+    <article class="card tilt" data-cursor="hover">
+      <div class="card__glow"></div>
+      <div class="card__top"><span class="card__num mono">06</span></div>
+      <h3>Document &amp; Knowledge AI</h3>
+      <p>Chat with your PDFs and wikis, and turn invoices, contracts and forms into clean, checked data.</p>
+    </article>
+
+    <article class="card card--wide tilt" data-cursor="hover">
+      <div class="card__glow"></div>
+      <div class="card__top"><span class="card__num mono">07</span><span class="tag tag--green">Custom</span></div>
+      <h3>Custom AI Apps &amp; Integrations</h3>
+      <p>AI features inside your product, AI lead scoring and outreach, internal tools and full AI SaaS platforms, from prototype to production.</p>
+      <div class="code-line mono" aria-hidden="true"><span class="c1">await</span> agent.<span class="c2">run</span>(<span class="c3">"qualify every new lead"</span>)<i class="caret"></i></div>
+    </article>
+
+    <article class="card card--wide tilt" data-cursor="hover">
+      <div class="card__glow"></div>
+      <div class="card__top"><span class="card__num mono">08</span></div>
+      <h3>WordPress, E-commerce &amp; UI/UX</h3>
+      <p>Custom WordPress themes and plugins, WooCommerce and Shopify stores, and interfaces designed in Figma, then built pixel-perfect.</p>
+    </article>
+  </div>
+  <div class="also">
+    <span class="mono">Also</span>
+    <span>UI/UX design</span><span>Technical SEO</span><span>API integrations</span><span>Hosting &amp; care plans</span><span>AI strategy &amp; audits</span><span>Speed optimisation</span>
+  </div>
+</section>
+
+<!-- ============ LIVE DEMO ============ -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <p class="kicker mono">(02) See it in action</p>
+      <h2 class="h2 split-lines">Don't imagine it. <em class="serif">Watch it work.</em></h2>
+      <p class="sec-sub">Three agents we build every week. Pick one and press play.</p>
+    </div>
+
+    <div class="demo__tabs" role="tablist">
+      <button role="tab" aria-selected="true" class="demo__tab is-on" data-tab="chat" data-cursor="hover">Chatbot</button>
+      <button role="tab" aria-selected="false" class="demo__tab" data-tab="voice" data-cursor="hover">Voice agent</button>
+      <button role="tab" aria-selected="false" class="demo__tab" data-tab="flow" data-cursor="hover">Automation</button>
+      <span class="demo__pill" aria-hidden="true"></span>
+    </div>
+
+    <div class="demo__stage">
+      <!-- Chat -->
+      <div class="pane is-on" data-pane="chat">
+        <div class="phone">
+          <div class="phone__head"><span class="avatar-sm">A</span><div><b>Aria · Clínica Sol</b><small><i class="dot dot--green"></i>Online · replies instantly</small></div></div>
+          <div class="phone__body" id="chatBody"></div>
+          <div class="phone__chips" id="chatChips">
+            <button data-q="price" data-cursor="hover">How much is teeth whitening?</button>
+            <button data-q="book" data-cursor="hover">Book me in Thursday</button>
+            <button data-q="lang" data-cursor="hover">¿Hablas español?</button>
+          </div>
+        </div>
+        <div class="pane__side">
+          <h3>A website assistant that actually books.</h3>
+          <ul class="ticks">
+            <li>Trained on your services, prices and FAQs</li>
+            <li>Checks your real calendar before offering a slot</li>
+            <li>Switches language automatically</li>
+            <li>Sends every conversation to your CRM</li>
+          </ul>
+          <button class="btn btn--ghost magnetic" id="chatReplay" data-cursor="hover"><span>Replay conversation</span></button>
+        </div>
+      </div>
+
+      <!-- Voice -->
+      <div class="pane" data-pane="voice">
+        <div class="voice">
+          <div class="voice__orb" id="voiceOrb"><span></span><span></span><span></span><b>S</b></div>
+          <div class="voice__meta"><b>Sarah</b><span class="mono" id="voiceTime">00:00</span></div>
+          <div class="voice__bars" id="voiceBars" aria-hidden="true"></div>
+          <button class="btn btn--glow magnetic" id="voicePlay" data-cursor="hover"><span>▶ Play the call</span></button>
+          <label class="voice__sound"><input type="checkbox" id="voiceSound"> Read it aloud (uses your browser's voice)</label>
+        </div>
+        <div class="transcript" id="transcript" aria-live="polite">
+          <p class="transcript__hint mono">Outbound call · HVAC company owner · press play</p>
+        </div>
+      </div>
+
+      <!-- Flow -->
+      <div class="pane" data-pane="flow">
+        <div class="flow" id="flow">
+          <div class="flow__node" data-i="0"><i>⌁</i><b>Form submitted</b><small>Website lead</small></div>
+          <div class="flow__edge"></div>
+          <div class="flow__node" data-i="1"><i>⛨</i><b>Spam filter</b><small>Free, no AI cost</small></div>
+          <div class="flow__edge"></div>
+          <div class="flow__node flow__node--ai" data-i="2"><i>✦</i><b>AI scores lead</b><small>Need · budget · urgency</small></div>
+          <div class="flow__edge"></div>
+          <div class="flow__split">
+            <div class="flow__node" data-i="3"><i>✉</i><b>Personal reply</b><small>Sent in &lt;60 s</small></div>
+            <div class="flow__node" data-i="4"><i>▦</i><b>CRM updated</b><small>Score + notes</small></div>
+            <div class="flow__node" data-i="5"><i>#</i><b>Slack alert</b><small>Hot leads only</small></div>
+          </div>
+        </div>
+        <div class="log mono" id="flowLog" aria-live="polite"></div>
+        <button class="btn btn--ghost magnetic flow__btn" id="flowRun" data-cursor="hover"><span>Run automation again</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK ============ -->
+<section class="work" id="work">
+  <div class="work__pin">
+    <div class="work__head wrap">
+      <div>
+        <p class="kicker mono">(03) Selected work</p>
+        <h2 class="h2">Work we've <em class="serif">shipped.</em></h2>
+      </div>
+      <div class="work__side">
+        <p class="sec-sub">AI products, websites and apps built by our team. Click any project for the full story.</p>
+        <div class="filter" role="tablist" aria-label="Filter projects">
+          <button class="is-on" data-filter="all" data-cursor="hover">All</button>
+          <button data-filter="ai" data-cursor="hover">AI &amp; automation</button>
+          <button data-filter="web" data-cursor="hover">Websites &amp; apps</button>
+        </div>
+      </div>
+    </div>
+    <div class="work__track" id="workTrack"><!-- filled by JS --></div>
+    <div class="work__bar wrap" aria-hidden="true"><i id="workBar"></i></div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="process wrap" id="process">
+  <div class="process__sticky">
+    <p class="kicker mono">(04) How we work</p>
+    <h2 class="h2 split-lines">From idea to launch <em class="serif">in weeks, not months.</em></h2>
+    <p class="sec-sub">You see real progress early, then we make it bulletproof. Same process for an AI agent, a website or a full app.</p>
+  </div>
+  <ol class="steps">
+    <li class="step"><span class="step__n mono">01</span><div><h3>Free discovery call</h3><p>30 minutes on your goals. We suggest the simplest thing that works, whether that's a website, an app, an AI agent or all three.</p><span class="step__t mono">Day 1</span></div></li>
+    <li class="step"><span class="step__n mono">02</span><div><h3>Design &amp; prototype</h3><p>Figma designs for websites and apps, or a real AI agent trained on your data that your team can test. You approve before we build.</p><span class="step__t mono">Week 1–2</span></div></li>
+    <li class="step"><span class="step__n mono">03</span><div><h3>Build &amp; integrate</h3><p>Clean, fast code connected to your CRM, calendar, payments and phone line, tested on real devices and real scenarios.</p><span class="step__t mono">Week 2–5</span></div></li>
+    <li class="step"><span class="step__n mono">04</span><div><h3>Launch &amp; grow</h3><p>We launch, monitor and keep improving with optional care plans: updates, new features and monthly AI tuning.</p><span class="step__t mono">Ongoing</span></div></li>
+  </ol>
+  <div class="process__line" aria-hidden="true"><i></i></div>
+</section>
+
+<!-- ============ EUROPE ============ -->
+<section class="eu wrap" id="why">
+  <div class="sec-head">
+    <p class="kicker mono">(05) Why Orbix Solutions</p>
+    <h2 class="h2 split-lines">One studio. <em class="serif">Zero handoffs.</em></h2>
+  </div>
+  <div class="eu__grid">
+    <div class="eu__card"><span class="eu__ic" aria-hidden="true">✦</span><h3>AI + full-stack in one team</h3><p>The people who design your website also build your app and your AI agent, so everything works together.</p></div>
+    <div class="eu__card"><span class="eu__ic" aria-hidden="true">⚡</span><h3>Fast, transparent delivery</h3><p>Fixed quotes, weekly progress you can click through, and launches in weeks rather than months.</p></div>
+    <div class="eu__card"><span class="eu__ic" aria-hidden="true">🛡</span><h3>Privacy &amp; compliance built in</h3><p>GDPR-ready data handling and AI that says it's AI, so your business stays on the right side of the rules.</p></div>
+    <div class="eu__card"><span class="eu__ic" aria-hidden="true">🔑</span><h3>You own everything</h3><p>Code, designs, prompts, workflows and data are yours. No lock-in, and full handover documentation.</p></div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq wrap" id="faq">
+  <div class="sec-head">
+    <p class="kicker mono">(06) FAQ</p>
+    <h2 class="h2 split-lines">Questions we <em class="serif">always get.</em></h2>
+  </div>
+  <div class="faq__list">
+    <details class="qa" data-cursor="hover"><summary>Will customers know they're talking to an AI?<i></i></summary><div class="qa__a"><p>Yes, and that's a good thing. Under the EU AI Act, people should know when they're speaking with an AI. Our agents say so naturally, sound warm and human, and pass the conversation to your team whenever a person is needed.</p></div></details>
+    <details class="qa" data-cursor="hover"><summary>How much does a project cost?<i></i></summary><div class="qa__a"><p>Every project gets a fixed quote in writing after a free discovery call, so there are no surprises. AI agents usually start as a fixed-price pilot for one use case, and their running costs (AI, phone minutes) are typically a few cents per conversation.</p></div></details>
+    <details class="qa" data-cursor="hover"><summary>How long does a website or app take?<i></i></summary><div class="qa__a"><p>A marketing website usually takes 2 to 4 weeks, an AI chatbot or voice agent 1 to 3 weeks, and a web or mobile app 6 to 12 weeks depending on features. You get a clear timeline before we start.</p></div></details>
+    <details class="qa" data-cursor="hover"><summary>Which AI models do you use?<i></i></summary><div class="qa__a"><p>Whatever fits the job and your budget: OpenAI, Anthropic Claude, Google Gemini or European models like Mistral. We're not tied to one vendor, so we can switch if a better or cheaper model appears.</p></div></details>
+    <details class="qa" data-cursor="hover"><summary>Is our data safe and GDPR compliant?<i></i></summary><div class="qa__a"><p>Yes. We design for GDPR and similar privacy laws from day one: data hosted in your region where available, data processing agreements, access controls and no training on your data.</p></div></details>
+    <details class="qa" data-cursor="hover"><summary>Can it connect to the tools we already use?<i></i></summary><div class="qa__a"><p>Almost certainly. We connect agents to calendars, CRMs (HubSpot, Pipedrive, Salesforce), Google Workspace, Microsoft 365, WhatsApp, phone systems, Slack and custom databases.</p></div></details>
+    <details class="qa" data-cursor="hover"><summary>Do you build websites and apps without AI?<i></i></summary><div class="qa__a"><p>Absolutely. Websites, WordPress and e-commerce stores, web apps and mobile apps are a big part of what we do. AI is there when it helps, never forced in.</p></div></details>
+  </div>
+</section>
+
+<!-- ============ BIG CTA ============ -->
+<section class="cta" id="cta">
+  <div class="cta__marquee" aria-hidden="true"><div class="cta__track" id="ctaTrack"><span>Let's build something smart ✦ Let's build something smart ✦ </span><span>Let's build something smart ✦ Let's build something smart ✦ </span></div></div>
+  <a href="#contact" class="cta__btn magnetic" data-cursor="hover" aria-label="Start a project"><span>Start a<br>project</span></a>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact wrap" id="contact">
+  <div class="contact__info">
+    <p class="kicker mono">(07) Contact</p>
+    <h2 class="h2 split-lines">Tell us what you want <em class="serif">to build.</em></h2>
+    <p class="sec-sub">We reply within one business day with honest advice, even if the answer is "you don't need AI for that". Prefer to chat? Message us on WhatsApp or talk to our AI.</p>
+    <ul class="contact__list">
+      <li><span class="mono">Email</span><a href="mailto:info@orbixsolutions.net" data-cursor="hover">info@orbixsolutions.net</a></li>
+      <li><span class="mono">Phone</span><a href="tel:+923374672612" data-cursor="hover">+92 337 4672612</a></li>
+      <li><span class="mono">WhatsApp</span><a class="wa-link" href="https://wa.me/923374672612" target="_blank" rel="noopener" data-cursor="hover">Chat with us →</a></li>
+      <li><span class="mono">AI assistant</span><button class="link-btn" data-voice data-cursor="hover">Talk to our AI by voice →</button></li>
+      <li><span class="mono">Based in</span><span>Lahore, Pakistan · clients worldwide</span></li>
+    </ul>
+  </div>
+  <form class="form" id="contactForm" novalidate>
+    <div class="form__row">
+      <label class="field"><input name="name" required autocomplete="name" placeholder=" "><span>Your name *</span></label>
+      <label class="field"><input name="email" type="email" required autocomplete="email" placeholder=" "><span>Work email *</span></label>
+    </div>
+    <label class="field"><input name="company" autocomplete="organization" placeholder=" "><span>Company</span></label>
+    <fieldset class="pick">
+      <legend>What do you need?</legend>
+      <div class="pick__opts">
+        <label><input type="radio" name="service" value="AI Chatbot" checked><span>AI Chatbot</span></label>
+        <label><input type="radio" name="service" value="AI Voice Agent"><span>Voice Agent</span></label>
+        <label><input type="radio" name="service" value="Workflow Automation"><span>Automation</span></label>
+        <label><input type="radio" name="service" value="Chat with documents / RAG"><span>Docs AI</span></label>
+        <label><input type="radio" name="service" value="Website"><span>Website</span></label>
+        <label><input type="radio" name="service" value="Web / Mobile App"><span>Web / mobile app</span></label>
+        <label><input type="radio" name="service" value="WordPress / E-commerce"><span>WordPress / store</span></label>
+        <label><input type="radio" name="service" value="Custom AI App"><span>Custom AI app</span></label>
+        <label><input type="radio" name="service" value="Not sure yet"><span>Not sure yet</span></label>
+      </div>
+    </fieldset>
+    <label class="field field--area"><textarea name="message" required rows="4" placeholder=" "></textarea><span>Tell us about your project *</span></label>
+    <p class="form__err" id="formErr" role="alert"></p>
+    <button class="btn btn--glow btn--full magnetic" type="submit" data-cursor="hover"><span id="formBtnText">Send message</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    <p class="form__note">We only use your details to reply to you. No newsletters, no sharing.</p>
+    <div class="form__done" id="formDone" hidden>
+      <div class="form__check"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg></div>
+      <h3>Message sent.</h3>
+      <p>Thank you. We'll be in touch within 24 hours.</p>
+    </div>
+  </form>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap foot__top">
+    <div><p class="foot__tag">AI agents, websites and apps for ambitious businesses.</p></div>
+    <div class="foot__cols">
+      <div><span class="mono">Explore</span><a href="#services">Services</a><a href="#demo">Live demo</a><a href="#work">Work</a><a href="#process">Process</a></div>
+      <div><span class="mono">Contact</span><a href="mailto:info@orbixsolutions.net">info@orbixsolutions.net</a><a href="tel:+923374672612">+92 337 4672612</a><a href="https://wa.me/923374672612" target="_blank" rel="noopener">WhatsApp</a><button class="foot__btn" data-voice>Talk to our AI</button></div>
+      <div><span class="mono">Social</span><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a><a href="https://twitter.com" target="_blank" rel="noopener">X / Twitter</a></div>
+    </div>
+  </div>
+  <div class="foot__giant" aria-hidden="true"><span>ORBIX</span><span>SOLUTIONS</span></div>
+  <div class="wrap foot__bottom mono"><span>© <span id="year">2026</span> Orbix Solutions. All rights reserved.</span><span>No tracking cookies on this site.</span><a href="#top" data-cursor="hover">Back to top ↑</a></div>
+</footer>
+
+<!-- ============ PROJECT MODAL ============ -->
+<div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal__bg" data-close></div>
+  <div class="modal__box" data-lenis-prevent>
+    <button class="modal__x" data-close aria-label="Close" data-cursor="hover">✕</button>
+    <img class="modal__img" id="modalImg" alt="">
+    <div class="modal__body">
+      <p class="kicker mono" id="modalCat"></p>
+      <h3 id="modalTitle"></h3>
+      <p class="modal__lead" id="modalLead"></p>
+      <div class="modal__cols">
+        <div><span class="mono">The problem</span><p id="modalProblem"></p></div>
+        <div><span class="mono">What we built</span><ul id="modalBuilt"></ul></div>
+      </div>
+      <div class="modal__stack" id="modalStack"></div>
+      <div class="modal__ctas"><a href="#contact" class="btn btn--glow" data-close data-cursor="hover"><span>Build something like this</span></a><a href="#" class="btn btn--ghost" id="modalLive" target="_blank" rel="noopener" data-cursor="hover"><span>Visit live site ↗</span></a></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============ WHATSAPP + CHATBOT DOCK ============ -->
+<div class="dock">
+  <button class="dock__nudge" type="button">👋 Questions? Ask Nova, our AI.</button>
+  <a class="dock__wa wa-link" href="https://wa.me/923374672612" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" data-cursor="hover"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C9.06 3 3.4 8.64 3.4 15.6c0 2.22.58 4.39 1.7 6.3L3.3 28.7l7-1.83a12.6 12.6 0 0 0 5.74 1.39h.01c6.97 0 12.64-5.65 12.64-12.6S23.02 3 16.04 3zm0 23.1a10.5 10.5 0 0 1-5.35-1.46l-.38-.23-4.16 1.09 1.11-4.05-.25-.41a10.42 10.42 0 0 1-1.6-5.55c0-5.79 4.72-10.5 10.53-10.5 5.8 0 10.52 4.71 10.52 10.5 0 5.8-4.72 10.6-10.52 10.6zm5.77-7.86c-.32-.16-1.87-.92-2.16-1.03-.29-.1-.5-.16-.71.16-.21.32-.81 1.03-1 1.24-.18.21-.37.24-.69.08-.32-.16-1.33-.49-2.54-1.57-.94-.84-1.57-1.87-1.75-2.18-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.55.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.53-.71-.54h-.61c-.21 0-.55.08-.84.4-.29.32-1.1 1.08-1.1 2.62 0 1.55 1.13 3.04 1.29 3.25.16.21 2.22 3.39 5.38 4.75.75.32 1.34.52 1.8.66.76.24 1.44.2 1.98.12.6-.09 1.87-.76 2.13-1.5.26-.74.26-1.37.18-1.5-.08-.13-.29-.21-.6-.37z"/></svg></a>
+  <button class="dock__chat" id="dockChat" type="button" aria-label="Chat with our AI assistant" aria-expanded="false" aria-controls="bot" data-cursor="hover">
+    <span class="dock__badge">1</span>
+    <svg class="ic-chat" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.2 3.6c-.5.4-1.3.1-1.3-.6V16A2.5 2.5 0 0 1 4 13.5v-8z"/><circle cx="9" cy="9.6" r="1.1"/><circle cx="12" cy="9.6" r="1.1"/><circle cx="15" cy="9.6" r="1.1"/></svg>
+    <svg class="ic-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+</div>
+
+<section class="bot" id="bot" role="dialog" aria-label="Chat with Nova, Orbix Solutions' AI assistant" aria-hidden="true">
+  <header class="bot__head">
+    <span class="bot__av" aria-hidden="true">N<i></i></span>
+    <div class="bot__who"><b>Nova</b><small>Orbix Solutions AI · replies instantly</small></div>
+    <button class="bot__icon" type="button" data-voice aria-label="Talk to Nova by voice" title="Talk by voice"><svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+    <a class="bot__icon bot__icon--wa wa-link" href="https://wa.me/923374672612" target="_blank" rel="noopener" aria-label="WhatsApp a human" title="WhatsApp a human"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C9.06 3 3.4 8.64 3.4 15.6c0 2.22.58 4.39 1.7 6.3L3.3 28.7l7-1.83a12.6 12.6 0 0 0 5.74 1.39h.01c6.97 0 12.64-5.65 12.64-12.6S23.02 3 16.04 3zm0 23.1a10.5 10.5 0 0 1-5.35-1.46l-.38-.23-4.16 1.09 1.11-4.05-.25-.41a10.42 10.42 0 0 1-1.6-5.55c0-5.79 4.72-10.5 10.53-10.5 5.8 0 10.52 4.71 10.52 10.5 0 5.8-4.72 10.6-10.52 10.6zm5.77-7.86c-.32-.16-1.87-.92-2.16-1.03-.29-.1-.5-.16-.71.16-.21.32-.81 1.03-1 1.24-.18.21-.37.24-.69.08-.32-.16-1.33-.49-2.54-1.57-.94-.84-1.57-1.87-1.75-2.18-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.55.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.53-.71-.54h-.61c-.21 0-.55.08-.84.4-.29.32-1.1 1.08-1.1 2.62 0 1.55 1.13 3.04 1.29 3.25.16.21 2.22 3.39 5.38 4.75.75.32 1.34.52 1.8.66.76.24 1.44.2 1.98.12.6-.09 1.87-.76 2.13-1.5.26-.74.26-1.37.18-1.5-.08-.13-.29-.21-.6-.37z"/></svg></a>
+    <button class="bot__icon" type="button" id="botClose" aria-label="Close chat"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </header>
+  <div class="bot__body" id="botBody" data-lenis-prevent aria-live="polite"></div>
+  <div class="bot__quick" id="botQuick" data-lenis-prevent></div>
+  <form class="bot__form" id="botForm" autocomplete="off">
+    <input id="botText" type="text" maxlength="500" placeholder="Ask about AI, websites, apps, prices…" aria-label="Your message">
+    <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-2.5-6.5L4 12z"/></svg></button>
+  </form>
+  <p class="bot__foot">AI assistant · can make mistakes · <a class="wa-link" href="https://wa.me/923374672612" target="_blank" rel="noopener">talk to a human</a></p>
+</section>
+
+<!-- ============ LIVE VOICE AGENT ============ -->
+<div class="vcall" id="vcall" role="dialog" aria-modal="true" aria-label="Talk to Nova, our AI voice agent" aria-hidden="true" data-state="idle">
+  <div class="vcall__bg" data-vclose></div>
+  <div class="vcall__box" data-lenis-prevent>
+    <button class="modal__x" type="button" data-vclose aria-label="Close" data-cursor="hover">✕</button>
+    <p class="kicker mono">Live AI voice agent</p>
+    <div class="voice__orb vcall__orb" id="vOrb"><span></span><span></span><span></span><b>N</b></div>
+    <h3>Nova <span class="mono" id="vTime">00:00</span></h3>
+    <p class="vcall__status" id="vStatus">Tap Start call and allow your microphone.</p>
+    <div class="vcall__wave" id="vWave" aria-hidden="true"></div>
+    <div class="vcall__log" id="vLog" aria-live="polite"></div>
+    <div class="vcall__ctrls">
+      <button class="btn btn--glow" type="button" id="vStart" data-cursor="hover"><span>Start call</span></button>
+      <button class="btn btn--ghost" type="button" id="vMute" hidden data-cursor="hover"><span>Mute</span></button>
+    </div>
+    <div class="vcall__off" id="vOff" hidden>
+      <button class="btn btn--glow" type="button" id="vDemo" data-cursor="hover"><span>▶ Hear a recorded call</span></button>
+      <a class="btn btn--ghost wa-link" href="https://wa.me/923374672612" target="_blank" rel="noopener" data-cursor="hover"><span>WhatsApp us</span></a>
+    </div>
+    <p class="vcall__note">Uses your microphone · calls end after 5 minutes · you're talking to an AI.</p>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="/assets/orbix-vendor.js?v=1" defer></script>
+<script src="/assets/orbix.js?v=1" defer></script>
+</body>
+</html>

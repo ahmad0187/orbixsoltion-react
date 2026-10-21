@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Orbix Solutions">
+  <defs>
+    <linearGradient id="og" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff5bd0"/><stop offset=".5" stop-color="#7b61ff"/><stop offset="1" stop-color="#3ee6ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="#0b0b16"/>
+  <circle cx="32" cy="32" r="12.5" fill="none" stroke="url(#og)" stroke-width="6"/>
+  <ellipse cx="32" cy="32" rx="25" ry="9.5" fill="none" stroke="url(#og)" stroke-width="2.6" transform="rotate(-30 32 32)" opacity=".95"/>
+  <circle cx="51.5" cy="20.5" r="4.2" fill="#3ee6ff"/>
+</svg>
